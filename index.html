@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css link -->
-    <link rel="stylesheet" href="style.css">
+    <!-- font awesome  link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>Shopping</title>
     <style>
         
@@ -16,57 +16,119 @@
 }
 
 body{
-    background-color: #c3c3c3;
+    background-color: #ffffff;
 }
 
 .header{
     text-align: center;
-    padding: 20px;
+    margin-top: 5%;
+}
+.Error{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: red;
+    display: none;
 }
 .container{
     width: 400px;
     height: auto;
     background-color: #ffffff;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.20); /* Added box shadow */
     padding: 10px 15px;
     border-radius: 10px;
     border: 1px solid #ffffff;
     margin: 20px auto;
 }
+
 form{
     padding: 10px;
 }
-.form p{
-    font-size: 2rem;
-    color: #000000;
-    padding: 10px;
-}
-label{
-    color: #000000;
+.form h1{
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #262626;
 }
 .form div {
-    padding: 5px 0px;
+    padding: 8px 0px;
 }
 .form div input{
-    width: 100%;
-    height: 30px;
+    border: none;
     outline: none;
-    border: 1px solid #999;
-    border-radius: 5px;
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 2px solid #999; 
+    background: transparent; 
+}
+.form div input::placeholder{
+    color: #000;
+    padding-left: 10px;
+    font-size: 15px;
 }
 
 .btn{
-    margin-top: 10px;
-    padding: 1px ;
-    background-color: #999;
-    color: #000;
+    margin-top: 20px;
+    padding: 10px 100px ;
+    background-color: #0000008e;
+    color: #fdfdfd;
     border: none;
     border-radius: 5px;
-    font-size: 1.3rem;
+    font-size: 25px;
+    font-weight: 300;
     cursor: pointer;
 }
 .btn:hover{
-    background-color: #565656;
+    background-color: #56565690;
+}
+.sing{
+    margin: 5px 0;
+    display: block;
+}
+.sing p {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 2px 0;
+}
+.sing div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sing a{
+    text-decoration: none;
+    padding: 0 7px;
+    font-size: 20px;
+    color: blue;
+}
+.sing a:active{
+    color: #00fdc7;
+}
+.sing h3{
+    color: rgba(15, 12, 12, 0.892);
+    padding-bottom: 13px;
+}
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon i {
+    background-color: #48414178;
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 50%;
+    margin: 0 25px;
+    color: #ffffff;
+}
+.icon i:hover{
+    color: rgb(255, 200, 0);
+}
+@media(max-width:769px){
+    .header{
+    margin-top: 20%;
+}
+}
+.hidden{
+    display: none;
 }
     </style>
 </head>
@@ -77,30 +139,41 @@ label{
     <header class="header">
         <div class="container">
             <form class="form" onsubmit="return validateForm()">
-                <p>Fill This Form</p>
+                <h1 class="logo">
+                    Login
+                </h1>
+                <p  class="Error">
+                    Invalid email
+                </p>
                 <div>
-                    <label for="name">Full Name</label>
-                    <input type="text" class="name" id="name" >
+                    <input type="text"  id="name" placeholder="Enter Your Name" >
                 </div>
                 <div>
-                    <label for="Email">Email</label>
-                    <input type="email" class="name" id="email" >
+                    <input type="email"  id="email" placeholder="Enter Your Email" title="We Don't Shear Your Email With AnyOne" >
                 </div>
                 <div>
-                    <label for="password">Password</label>
-                    <input type="password" class="name" id="password">
+                    <input type="password"  id="password" placeholder="Enter Your Password" >
                     <p id="string" class="strength"></p>
                 </div>
-                <div>
-                    <label for="conform-password">Conform Password</label>
-                    <input type="password" class="name" id="Conform">
+                <div class="hidden">
+                    <input type="password" class="name" id="Conform" placeholder="Conform Your Password">
                 </div>
+                <input type="submit" class="btn" onclick="Move()"></input>
                 <div>
-                    <input type="submit" class="btn" onclick="Move()"></input>
-                </div>
+                    <div class="sing">
+                        <div>
+                        <p>Don't have an account?</p>
+                        <a href="#" class="link">Sign up Now</a>
+                        </div>
+                        <h3>or With</h3>
+                        <div class="icon">
+                            <i class="fa-brands fa-google"></i>
+                            <i class="fa-brands fa-apple"></i>
+                        </div>
+                    </div>
+                    
             </form>
-
-            <p id="errorMessage" style="color: red; display: none;">Invalid email. Please try again.</p>
+            <!-- <p id="errorMessage" style="color: red; display: none;">Invalid email. Please try again.</p>  This Line For Test  -->
         </div>
     </header>
 
@@ -109,6 +182,6 @@ label{
 
 
     <!-- javascript link -->
-    <script src="main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
