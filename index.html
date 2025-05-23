@@ -152,7 +152,7 @@ form{
                     <input type="email"  id="email" placeholder="Enter Your Email" title="We Don't Shear Your Email With AnyOne" >
                 </div>
                 <div>
-                    <input type="password"  id="password" placeholder="Enter Your Password" >
+                    <input type="password"  id="password" placeholder="Enter Your Password" oninput="checkPassword()" >
                     <p id="string" class="strength"></p>
                 </div>
                 <div class="hidden">
@@ -177,11 +177,82 @@ form{
         </div>
     </header>
 
-
-
-
-
     <!-- javascript link -->
-    <script src="/js/main.js"></script>
+    <script>
+        
+
+
+        let myLink = document.querySelector(".link");
+let myLogo = document.querySelector(".logo");
+let myName = document.getElementById("name");
+let myHidden = document.querySelector(".hidden");
+let myPassword = document.getElementById("password");
+let mySing = document.querySelector(".sing");
+let Email = document.getElementById("email");
+let errorMsg = document.querySelector(".Error");
+
+// Form
+const form = document.querySelector(".form");
+if (form) {
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        // Check for empty fields
+        if (myName.value === "" || Email.value === "" || myPassword.value === "") {
+            alert("Please fill in all fields");
+            return;
+        }
+        // Validate email
+        if (validateEmail(Email.value)) {
+            window.location.href = "./src/dashboard.html";
+        } else {
+            if (errorMsg) errorMsg.style.display = "block";
+        }
+    });
+}
+
+function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+    return regex.test(email);
+}
+[myName, Email, myPassword].forEach(input => {
+    input.addEventListener("input", () => {
+        if (errorMsg) errorMsg.style.display = "none";
+    });
+});
+// for password
+function checkPassword () {
+    const password = document.getElementById("password");
+    const string = document.getElementById("string");
+
+    let strength = 0;
+    if (password.value.length >= 8) strength++;
+    if (/[A-Z]/.test(password.value)) strength++;
+    if (/[a-z]/.test(password.value)) strength++;
+    if (/[0-9]/.test(password.value)) strength++;
+
+    if (strength === 0) {
+        string.textContent = "Write a Password";
+        string.className = "strength";
+    } else {
+        string.textContent = "";
+    }
+}
+
+// Add password input event for strength check
+if (myPassword) {
+    myPassword.addEventListener("input", checkPassword);
+}
+
+// Show confirm password and hide sign up
+if (myLink) {
+    myLink.addEventListener("click", function(e) {
+        e.preventDefault();
+        if (myLogo) myLogo.textContent = "Sign in";
+        if (myHidden) myHidden.classList.remove("hidden");
+        if (mySing) mySing.style.display = "none";
+    });
+}
+
+    </script>
 </body>
 </html>
