@@ -643,12 +643,9 @@ label{
 }
 
 .footer-container {
-    max-width: 1200px;
-    margin: 0 5%;
-    padding: 0 16px;
-    display: flex;
-    flex-direction: row;
-    gap: 32px;
+    max-width: 100%;
+    margin: 0 ;
+    padding: 0 50px;
 }
 
 .footer-row {
@@ -736,4 +733,5 @@ label{
     .footer-col:last-child {
         margin-right: 0;
     }
+
 }
