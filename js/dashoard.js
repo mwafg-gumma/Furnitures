@@ -1,6 +1,5 @@
 
 
-
 // for navbar on small screen
 const list = document.getElementById("list")
 

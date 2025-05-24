@@ -126,6 +126,7 @@ nav .list li a:hover::before{
         display: block;
     }
     nav .list li a {
+    /* display: none; */
     padding: 10px;
     font-size: 1.2rem;
     margin: 1px;
@@ -146,7 +147,11 @@ nav .list li a:hover::before{
     width: 50px;
     margin-left: 10px;
 }
-}
+} 
+
+
+
+
 /* showcase */
 .showcase{
     width: 100%;
@@ -203,18 +208,21 @@ nav .list li a:hover::before{
 .btn:hover{
     background-color: #080808;
 }
-@media(max-width:769px){ */
+@media(max-width:769px){ 
     .showcase h1{
-        padding: 20px;
-        font-weight: 400;
-        font-size: 2rem;
+        padding: 15px;
+        font-weight: 800;
+        font-size: 1.5rem;
         color: #fff;
         margin-top: 10px;
     }
+    .showcase{
+    height: 550px;
+}
     .showcase h2{
         font-size: 2rem;
         color: #ffffff;
-        font-weight: 200;
+        font-weight: 300;
         margin-top: 10px;
     }
     .btn{
